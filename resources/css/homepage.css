@@ -1,0 +1,76 @@
+.imag{
+    height: 200px;
+    width: 200px;
+}
+
+
+nav {
+    overflow: hidden;
+    background-color: #333;
+}
+
+/* Navbar 链接 */
+nav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* 链接 - 悬停时改变颜色 */
+nav a:hover {
+
+    background-color: #ddd;
+    color: black;
+}
+
+#head_display_div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+.head_imag{
+    height: 400px;
+    width:400px;
+
+
+}
+
+.content_a{
+    background-color: #333;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+.content_a:hover{
+    background-color: #ddd;
+    color: black;
+}
+
+
+
+
+.display_div{
+    width: 33.33%;
+
+    float: left;
+
+    text-align: center;
+}
+
+
+footer {
+
+    clear:both;
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-align: center;
+}
+
+

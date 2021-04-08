@@ -2,29 +2,285 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>collections</title>
+    <link rel="stylesheet" type="text/css" href="resources/css/header&nav.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/button.css">
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .dropbtn {
+            float: left;
+
+            margin-top: 20px;
+
+
+            color: cornflowerblue;
+
+            font-size: 22px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+
+            width: 100%;
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {background-color: #f1f1f1}
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: #3e8e41;
+        }
+
+        .box {
+
+            float: left;
+            width: 70%;
+            padding: 20px;
+            background-color: white;
+
+
+        }
+
+
+        .box_box{
+            margin-top: 20px;
+            width: 100%;
+            float: left;
+            background-color:#f1f1f1;
+            padding: 20px;
+        }
+
+
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        .picture{
+            float: left;
+            width: 30%;
+            /*text-align: center;*/
+        }
+        .content{
+            float: left;
+            width: 70%;
+        }
+
+
+        div>img{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search{
+            width: 30%;
+            float: left;
+            margin: 40px auto;
+            display: inline;
+            padding-left: 8%;
+            background-color: #f1f1f1;
+            height: ;
+
+            /*border: 1px solid red;*/
+        }
+        .search input{
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+            float: left;
+
+            height: 30px;
+            outline: none;
+            border: 1px solid black;
+            box-sizing: border-box;
+            background-color: white;
+        }
+        .search button{
+            float: left;
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 5px;
+            height: 30px;
+            background-color: black;
+            color: white;
+            border-style: none;
+            outline: none;
+        }
+        .search button i{
+            font-style: normal;
+        }
+        .search button:hover{
+            font-size: 16px;
+        }
+
+        .pagination {
+            margin-top: 10px;
+            width: 100%;
+            float: left;
+            background-color:white;
+            padding: 20px;
+            display: inline-block;
+        }
+
+        .pagination a {
+            color: black;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+        }
+
+        .pagination a.active {
+            background-color: #4CAF50;
+            color: white;
+            border: 1px solid #4CAF50;
+        }
+
+        .pagination a:hover:not(.active) {background-color: #ddd;}
+
+
+
+
+    </style>
 </head>
-<body>
 <header>
-    <nav>
-        <img width="100" height="100" src="resources/img/logo.jpeg" alt="this is a cool website">
-        this is a cool website
-        <a href="homepage.html"> home &nbsp</a>
-        <a href="login.html"> login &nbsp</a>
-        <a href="register.html"> register&nbsp</a>
-        <a href="search.html">search &nbsp</a>
-    </nav>
+
+
+    <img width="100" height="100" src="resources/img/logo.jpeg" alt="this is a cool website">
+    this is a cool website
+
 
 </header>
-<hr>
+<nav>
 
-<main>
-    <form>
-        search : <label>
-        <input type="search" name="bdSearch" >
-    </label>
-    </form>
-</main>
+
+    <a href="homepage.html"> home &nbsp</a>
+    <a href="login.html"> login &nbsp</a>
+    <a href="register.html"> register&nbsp</a>
+    <a href="search.html">search &nbsp</a>
+    <a href="collections.html">collections</a>
+
+
+</nav>
+<body>
+
+
+<div class="clearfix" >
+    <div class="search">
+        <input type="text" placeholder="请输入..." name="" id="" value="" />
+        <button><i>搜索</i></button>
+    </div>
+    <div class="box" >
+        <div class="dropdown">
+            <button class="dropbtn">keyword</button>
+            <div class="dropdown-content">
+                <a href="#">keyword 1</a>
+                <a href="#">keyword 2</a>
+                <a href="#">keyword 3</a>
+            </div>
+        </div>
+        <div class="box_box">
+            <div class="picture">
+                <img src="resources/img/14.jpg" width="40%" height="40%">
+            </div>
+            <div class="content">
+                <p>
+                    title: a beautiful picture
+                </p>
+                <p>
+                    description: a beautiful picture
+                </p>
+                <p>
+                    <a href="details.html" class="content_a"> details</a>
+                </p>
+
+            </div>
+        </div>
+        <div class="box_box">
+            <div class="picture">
+                <img src="resources/img/15.jpg" width="40%" height="40%">
+            </div>
+            <div class="content">
+                <p>
+                    title: a beautiful picture
+                </p>
+                <p>
+                    description: a beautiful picture
+                </p>
+                <p>
+                    <a href="details.html" class="content_a"> details</a>
+                </p>
+
+            </div>
+        </div>
+        <div class="box_box">
+            <div class="picture">
+                <img src="resources/img/16.jpg" width="40%" height="40%">
+            </div>
+            <div class="content">
+                <p>
+                    title: a beautiful picture
+                </p>
+                <p>
+                    description: a beautiful picture
+                </p>
+                <p>
+                    <a href="details.html" class="content_a"> details</a>
+                </p>
+
+            </div>
+        </div>
+        <div class="pagination">
+            <a href="#">«</a>
+            <a href="#">1</a>
+            <a href="#" class="active">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+            <a href="#">6</a>
+            <a href="#">»</a>
+        </div>
+
+
+    </div>
+</div>
+
+<footer>
+    <p>All rights reserved</p>
+</footer>
+
+
+
+
+
 
 </body>
 </html>
+

@@ -2,33 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Login</title>
+    <link rel="icon" type="image/x-icon" href="resources/img/logo.jpeg">
+    <link rel="stylesheet" type="text/css" href="resources/css/header&nav.css">
+    <link rel="stylesheet" type="text/css" href="resources/css/button.css">
 </head>
 <body>
 <header>
-    <nav>
-        <img width="100" height="100" src="resources/img/logo.jpeg" alt="this is a cool website">
-        this is a cool website
-        <a href="homepage.html"> home &nbsp</a>
-        <a href="login.html"> login &nbsp</a>
-        <a href="register.html"> register&nbsp</a>
-        <a href="search.html">search &nbsp</a>
-    </nav>
+
+
+    <img width="100" height="100" src="resources/img/logo.jpeg" alt="this is a cool website">
+    this is a cool website
+
+    <style>
+        div{
+            height: 1000px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        form{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+
+            padding: auto;
+            width: 300px;
+            text-align: center;
+        }
+    </style>
+
+
 
 </header>
-<hr>
+<nav>
+
+
+
+
+
+    <a href="homepage.html"> home &nbsp</a>
+    <a href="login.html"> login &nbsp</a>
+    <a href="register.html"> register&nbsp</a>
+    <a href="search.html">search &nbsp</a>
+    <a href="collections.html">collections</a>
+
+
+</nav>
 
 <main>
-    <p>LOGIN IN</p>
-    <div>
+    <p style="text-align: center">LOGIN IN</p>
+    <div >
         <form  method="post">
             name：<input type="text" name="name"><br><br>
             password：<input type="password" name="password"><br><br>
 
-            <button type="submit">log in</button>
+            <button type="submit" class="unify_button" style="text-align: center">log in</button>
         </form>
     </div>
 </main>
+
+<footer>
+    <p>All rights reserved</p>
+</footer>
 
 </body>
 </html>
