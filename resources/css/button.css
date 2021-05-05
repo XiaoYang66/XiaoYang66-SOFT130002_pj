@@ -26,8 +26,11 @@
     text-align: center;
     padding: 7px 7px;
     text-decoration:none;
+
+
 }
 .content_a:hover{
     background-color: #ddd;
     color: black;
 }
+

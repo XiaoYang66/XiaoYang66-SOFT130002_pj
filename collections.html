@@ -63,6 +63,7 @@
         }
 
 
+
     </style>
 </head>
 <header>
@@ -108,6 +109,7 @@
                 </p>
                 <p>
                     <a href="details.html" class="content_a"> details</a>
+                    <button type="button" class="content_a" id="box1"  onclick="delete_dox(this)">delete</button>
                 </p>
 
             </div>
@@ -125,6 +127,7 @@
                 </p>
                 <p>
                     <a href="details.html" class="content_a"> details</a>
+                    <button type="button" class="content_a" id="box2" onclick="delete_dox(this)">delete</button>
                 </p>
 
             </div>
@@ -142,6 +145,7 @@
                 </p>
                 <p>
                     <a href="details.html" class="content_a"> details</a>
+                    <button type="button" class="content_a" id="box3" onclick="delete_dox(this)">delete</button>
                 </p>
 
             </div>
@@ -158,6 +162,18 @@
     <p>All rights reserved</p>
 </footer>
 
+<script>
+    function delete_dox(element)
+    {
+        var x=element.parentElement.parentElement.parentElement;
+
+        x.innerHTML="";
+
+
+
+        alert("success !")
+    }
+</script>
 
 </body>
 </html>

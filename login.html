@@ -53,18 +53,42 @@
 <main>
     <p style="text-align: center">LOGIN IN</p>
     <div >
-        <form  method="post">
-            name：<input type="text" name="name"><br><br>
-            password：<input type="password" name="password"><br><br>
+        <form  method="post" id="submit_login">
+            name：<input type="text" name="name" id="name"><br><br>
+            password：<input type="password" name="password" id="password"><br><br>
 
-            <button type="submit" class="unify_button" style="text-align: center">log in</button>
+            <button onclick="submit_login()" type="submit" class="unify_button" style="text-align: center">log in</button>
         </form>
     </div>
+
+
+
+
 </main>
 
 <footer>
     <p>All rights reserved</p>
 </footer>
+<script>
+    function submit_login() {
+        const form = document.getElementById("submit_login");
+        var elements = [];
+        var tagElements = form.getElementsByTagName('input');
+        for (let j = 0; j < tagElements.length; j++){
+            elements.push(tagElements[j]);
 
+        }
+
+        var txt;
+        var name = elements[0].value;
+        var password=elements[1].value;
+        if (name == null || password == null || name === "" || password === "") {
+            txt = "empty input";
+        } else {
+            txt = "hello! "+name+"!";
+        }
+        alert(txt)
+    }
+</script>
 </body>
 </html>

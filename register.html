@@ -7,13 +7,14 @@
     <link rel="stylesheet" type="text/css" href="resources/css/header&nav.css">
     <link rel="stylesheet" type="text/css" href="resources/css/button.css">
     <style>
-        div{
+        div {
             height: 1000px;
             display: block;
             margin-left: auto;
             margin-right: auto;
         }
-        form{
+
+        form {
             display: block;
             margin-left: auto;
             margin-right: auto;
@@ -36,9 +37,6 @@
 <nav>
 
 
-
-
-
     <a href="homepage.html"> home &nbsp</a>
     <a href="login.html"> login &nbsp</a>
     <a href="register.html"> register&nbsp</a>
@@ -50,11 +48,11 @@
 <main>
     <p style="text-align: center">REGISTER</p>
     <div>
-        <form  method="post">
+        <form method="post" id="submit_register">
             <span style=" width: 200px">name：</span><input type="text" name="name"><br><br>
             password：<input type="password" name="password"><br><br>
             confirm password: <input type="password" name="password"><br><br>
-            <button type="submit" class="unify_button">register</button>
+            <button type="submit" class="unify_button" onclick="submit_register()">register</button>
         </form>
     </div>
 </main>
@@ -62,6 +60,45 @@
 <footer>
     <p>All rights reserved</p>
 </footer>
+<script>
+    function submit_register() {
+        const form = document.getElementById("submit_register");
+        var elements = [];
+        var tagElements = form.getElementsByTagName('input');
+        for (let j = 0; j < tagElements.length; j++) {
+            elements.push(tagElements[j]);
 
+        }
+
+        var number=/\d/;
+
+
+        var txt;
+        const name = elements[0].value;
+        const password = elements[1].value;
+        const confir_password = elements[2].value;
+
+        if (name == null || password == null || name === "" || password === "" || confir_password === "" || confir_password==null) {
+            txt = "empty input";
+        } else if (password !== confir_password) {
+            txt = " password not consistent";
+        } else if (!(number.test(password) && hasLetter(password))){
+            txt = " password not contain both letter and number";
+        }
+        else {
+            txt = " register success";
+        }
+        alert(txt)
+    }
+    function hasLetter(str) {
+        for (var i in str) {
+            var asc = str.charCodeAt(i);
+            if ((asc >= 65 && asc <= 90 || asc >= 97 && asc <= 122)) {
+                return true;
+            }
+        }
+        return false;
+    }
+</script>
 </body>
 </html>
