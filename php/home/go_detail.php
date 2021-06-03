@@ -1,12 +1,41 @@
-<!DOCTYPE html>
+<?php
+$p= $_GET['file_id'];
+$db_hostname = 'localhost';
+$db_database = 'web_course_2021_spring';
+$db_username = 'root';
+$db_password = '';
+$conn = new mysqli($db_hostname, $db_username, $db_password, $db_database);
+
+if ($conn->connect_errno) {
+    die ($conn->connect_errno);
+
+}
+
+
+$query = "SELECT * FROM artworks WHERE imageFileName="."'".$p."'";
+
+$results = $conn->query($query);
+$results->data_seek(0);
+$title=$results->fetch_assoc()['title'];
+$results->data_seek(0);
+$description=$results->fetch_assoc()['description'];
+$results->data_seek(0);
+$artist=$results->fetch_assoc()['artist'];
+$results->data_seek(0);
+$price=$results->fetch_assoc()['price'];
+$results->data_seek(0);
+$view=$results->fetch_assoc()['view']+1;
+$results->data_seek(0);
+$artworkId=$results->fetch_assoc()['imageFileName'];
+
+echo '<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Register</title>
+    <title>product details</title>
     <link rel="icon" type="image/x-icon" href="resources/img/logo.jpeg">
     <link rel="stylesheet" type="text/css" href="resources/css/header&nav.css">
     <link rel="stylesheet" type="text/css" href="resources/css/button.css">
-
 
     <!-- Font Awesome -->
     <link
@@ -23,14 +52,18 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0/mdb.min.css"
             rel="stylesheet"
     />
+
+
+
+
 </head>
 <body>
-
+<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <!-- Container wrapper -->
     <div class="container-fluid">
         <!-- Navbar brand -->
-        <a class="navbar-brand" href="homepage.html">Brand</a>
+        <a class="navbar-brand" href="../.././homepage.html">Brand</a>
 
         <!-- Toggle button -->
         <button
@@ -50,19 +83,19 @@
             <!-- Left links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active"  href="homepage.html">Home</a>
+                    <a class="nav-link active"  href="../.././homepage.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="login.html">login</a>
+                    <a class="nav-link" href="../.././login.html">login</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="register.html">register</a>
+                    <a class="nav-link" href="../.././register.html">register</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"  href="collections.html">collections</a>
+                    <a class="nav-link" href="../.././collections.html">collections</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="search.html">search</a>
+                    <a class="nav-link" href="../.././search.html">search</a>
                 </li>
 
 
@@ -90,17 +123,32 @@
     </div>
     <!-- Container wrapper -->
 </nav>
-<main>
-    <p style="text-align: center">REGISTER</p>
-    <div>
-        <form method="post" id="submit_register">
-            <span style=" width: 200px">name：</span><input type="text" name="name"><br><br>
-            password：<input type="password" name="password"><br><br>
-            confirm password: <input type="password" name="password"><br><br>
-            <button type="submit" class="unify_button" onclick="submit_register()">register</button>
-        </form>
+<div class="card mb-3" style="max-width: 540px; margin: auto">
+    <div class="row g-0 align-items-center">
+        <div class="col-md-4 " >
+            <img
+                    src="../.././resources/img/'.$p.'"
+                    alt="..."
+                    class="img-fluid"
+            />
+        </div>
+        <div class="col-md-8 ">
+            <div class="card-body">
+                <h5 class="card-title">'.$title.'</h5>
+                <p class="card-text">'.$artist.
+
+                '</p>
+                <p class="card-text">'.$description.
+
+                '</p>
+                <p class="card-text">
+                    <small class="text-muted">viewed: '.$view.' times </small>
+                    <small class="text-muted">$'.$price.'</small>
+                </p>
+            </div>
+        </div>
     </div>
-</main>
+</div>
 <footer class="bg-primary text-white text-center text-lg-start">
     <!-- Grid container -->
     <div class="container p-4">
@@ -171,49 +219,13 @@
     </div>
     <!-- Copyright -->
 </footer>
-<script>
-    function submit_register() {
-        const form = document.getElementById("submit_register");
-        var elements = [];
-        var tagElements = form.getElementsByTagName('input');
-        for (let j = 0; j < tagElements.length; j++) {
-            elements.push(tagElements[j]);
-
-        }
-
-        var number=/\d/;
-
-
-        var txt;
-        const name = elements[0].value;
-        const password = elements[1].value;
-        const confir_password = elements[2].value;
-
-        if (name == null || password == null || name === "" || password === "" || confir_password === "" || confir_password==null) {
-            txt = "empty input";
-        } else if (password !== confir_password) {
-            txt = " password not consistent";
-        } else if (!(number.test(password) && hasLetter(password))){
-            txt = " password not contain both letter and number";
-        }
-        else {
-            txt = " register success";
-        }
-        alert(txt)
-    }
-    function hasLetter(str) {
-        for (var i in str) {
-            var asc = str.charCodeAt(i);
-            if ((asc >= 65 && asc <= 90 || asc >= 97 && asc <= 122)) {
-                return true;
-            }
-        }
-        return false;
-    }
-</script>
 <script
         type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"
 ></script>
+
 </body>
-</html>
+</html>';
+
+
+

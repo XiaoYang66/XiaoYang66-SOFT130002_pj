@@ -8,99 +8,463 @@
     <link rel="stylesheet" type="text/css" href="resources/css/button.css">
 
 
+    <!-- Font Awesome -->
+    <link
+            href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+            rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            rel="stylesheet"
+    />
+    <!-- MDB -->
+    <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0/mdb.min.css"
+            rel="stylesheet"
+    />
+
+
+
 </head>
 <body>
-<header>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Container wrapper -->
+    <div class="container-fluid">
+        <!-- Navbar brand -->
+        <a class="navbar-brand" href="homepage.html">Brand</a>
+
+        <!-- Toggle button -->
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-mdb-toggle="collapse"
+                data-mdb-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+        >
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Left links -->
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="homepage.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="register.html">register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link"  href="collections.html">collections</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="search.html">search</a>
+                </li>
 
 
-    <img width="100" height="100" src="resources/img/logo.jpeg" alt="this is a cool website">
-    this is a cool website
+            </ul>
+            <!-- Left links -->
 
-
-</header>
-<nav>
-
-
-
-
-
-        <a href="homepage.html"> home &nbsp</a>
-        <a href="login.html"> login &nbsp</a>
-        <a href="register.html"> register&nbsp</a>
-        <a href="search.html">search &nbsp</a>
-    <a href="collections.html">collections</a>
-
-
+            <!-- Search form -->
+            <form class="d-flex input-group w-auto">
+                <input
+                        type="search"
+                        class="form-control"
+                        placeholder="Type query"
+                        aria-label="Search"
+                />
+                <button
+                        class="btn btn-outline-primary"
+                        type="button"
+                        data-mdb-ripple-color="dark"
+                >
+                    Search
+                </button>
+            </form>
+        </div>
+        <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
 </nav>
 
 
-<main>
-    <div id="head_display_div">
-        <a href="details.html"><img class="head_imag" src="resources/img/215.jpg" alt="a beautiful picture"></a>
+<div>
+    <!-- Carousel wrapper -->
+    <div
+            id="carouselBasicExample"
+            class="carousel slide carousel-fade"
+            data-mdb-ride="carousel"
+
+
+    >
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-mdb-target="#carouselBasicExample" data-mdb-slide-to="0" class="active"></li>
+            <li data-mdb-target="#carouselBasicExample" data-mdb-slide-to="1"></li>
+            <li data-mdb-target="#carouselBasicExample" data-mdb-slide-to="2"></li>
+        </ol>
+
+        <!-- Inner -->
+        <div class="carousel-inner">
+            <!-- Single item -->
+            <div class="carousel-item active">
+                <img
+                        src="./resources/img/14.jpg"
+                        class="d-block w-100 .img-fluid"
+                        alt="..."
+                        style="max-height: 400px"
+                        id="carousel-picture1"
+
+                />
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>First slide label</h5>
+                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                </div>
+            </div>
+
+            <!-- Single item -->
+            <div class="carousel-item">
+                <img
+                        src="./resources/img/12.jpg"
+                        class="d-block w-100 .img-fluid"
+                        alt="..."
+                        style="max-height: 400px"
+                        id="carousel-picture2"
+
+
+                />
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Second slide label</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </div>
+
+            <!-- Single item -->
+            <div class="carousel-item">
+                <img
+                        src="./resources/img/15.jpg"
+                        class="d-block w-100 .img-fluid"
+                        alt="..."
+                        style="max-height: 400px"
+                        id="carousel-picture3"
+
+                />
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Third slide label</h5>
+                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                </div>
+            </div>
+        </div>
+        <!-- Inner -->
+
+        <!-- Controls -->
+        <a
+                class="carousel-control-prev"
+                href="#carouselBasicExample"
+                role="button"
+                data-mdb-slide="prev"
+        >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </a>
+        <a
+                class="carousel-control-next"
+                href="#carouselBasicExample"
+                role="button"
+                data-mdb-slide="next"
+        >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </a>
     </div>
+    <!-- Carousel wrapper -->
 
-    <div class="main-content">
-        <div class="display_div">
-            <img class="imag" src="resources/img/6.jpg" alt="a beautiful picture">
-            <p>
-                title: a beautiful picture
+    <!--Main layout-->
+    <div class="my-5">
+        <div class="container">
+            <!--Section: Content-->
+            <section class="text-center">
+                <h4 class="mb-5"><strong>Latest Artworks</strong></h4>
 
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 mb-4">
+                        <div class="card">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img src="#" id='latest_pic_1' class="img-fluid" />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title" id='latest_title_1'>Post title</h5>
+                                <p class="card-text" id='latest_description_1'>
+                                    Some quick example text to build on the card title and make up the bulk of the
+                                    card's content.
+                                </p>
+                                <a href="#!" class="btn btn-primary" id='latest_a_1'>detail</a>
+                            </div>
+                        </div>
+                    </div>
 
-            </p>
-            <p>
-                description: a beautiful picture
-            </p>
-            <p>
-                <a href="details.html" class="content_a"> details</a>
-            </p>
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img src="" id='latest_pic_2' class="img-fluid" />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title" id='latest_title_2'>Post title</h5>
+                                <p class="card-text" id='latest_description_2'>
+                                    Some quick example text to build on the card title and make up the bulk of the
+                                    card's content.
+                                </p>
+                                <a href="#!" class="btn btn-primary" id='latest_a_2'>detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img src="" id='latest_pic_3' class="img-fluid" />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title" id='latest_title_3'>Post title</h5>
+                                <p class="card-text" id='latest_description_3'>
+                                    Some quick example text to build on the card title and make up the bulk of the
+                                    card's content.
+                                </p>
+                                <a href="#!" class="btn btn-primary" id='latest_a_3'>detail</a>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-12 mb-4">
+                        <div class="card">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img src="" id='latest_pic_4' class="img-fluid" />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title" id='latest_title_4'>Post title</h5>
+                                <p class="card-text" id='latest_description_4'>
+                                    Some quick example text to build on the card title and make up the bulk of the
+                                    card's content.
+                                </p>
+                                <a href="#!" class="btn btn-primary" id='latest_a_4'>detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img src="" id='latest_pic_5' class="img-fluid" />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title" id='latest_title_5'>Post title</h5>
+                                <p class="card-text" id='latest_description_5'>
+                                    Some quick example text to build on the card title and make up the bulk of the
+                                    card's content.
+                                </p>
+                                <a href="#!" class="btn btn-primary" id='latest_a_5'>detail</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card">
+                            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                                <img src="" id='latest_pic_6' class="img-fluid" />
+                                <a href="#!">
+                                    <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                                </a>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title" id='latest_title_6'>Post title</h5>
+                                <p class="card-text" id='latest_description_6'>
+                                    Some quick example text to build on the card title and make up the bulk of the
+                                    card's content.
+                                </p>
+                                <a href="./php/home/go_detail.php?p=3" class="btn btn-primary" id='latest_a_6'>detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!--Section: Content-->
 
 
         </div>
-        <div class="display_div">
-
-            <img class="imag" src="resources/img/7.jpg" alt="a beautiful picture">
-            <p>
-                title: a beautiful picture
-
-
-            </p>
-            <p>
-                description: a beautiful picture
-            </p>
-            <p>
-                <a href="details.html" class="content_a"> details</a>
-            </p>
-
-
-        </div>
-        <div class="display_div">
-
-            <img class="imag" src="resources/img/8.jpg" alt="a beautiful picture">
-            <p>
-                title: a beautiful picture
-
-
-            </p>
-            <p>
-                description: a beautiful picture
-            </p>
-            <p>
-                <a href="details.html" class="content_a"> details</a>
-            </p>
-
-        </div>
-
-
     </div>
+    <!--Main layout-->
 
-</main>
+</div>
 
+<footer class="bg-primary text-white text-center text-lg-start">
+    <!-- Grid container -->
+    <div class="container p-4">
+        <!--Grid row-->
+        <div class="row">
+            <!--Grid column-->
+            <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Footer Content</h5>
 
-<footer>
-    <p>All rights reserved</p>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
+                    molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam
+                    voluptatem veniam, est atque cumque eum delectus sint!
+                </p>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase">Links</h5>
+
+                <ul class="list-unstyled mb-0">
+                    <li>
+                        <a href="#!" class="text-white">Link 1</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-white">Link 2</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-white">Link 3</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-white">Link 4</a>
+                    </li>
+                </ul>
+            </div>
+            <!--Grid column-->
+
+            <!--Grid column-->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h5 class="text-uppercase mb-0">Links</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="#!" class="text-white">Link 1</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-white">Link 2</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-white">Link 3</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="text-white">Link 4</a>
+                    </li>
+                </ul>
+            </div>
+            <!--Grid column-->
+        </div>
+        <!--Grid row-->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+        © 2020 Copyright:
+        <a class="text-white" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
 </footer>
+<!-- MDB -->
+
+
+<!-- MDB -->
+<!-- MDB -->
+<script
+        type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"
+></script>
+<script>
+    var xmlhttp;
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function()
+    {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            var jsonObject=JSON.parse(xmlhttp.responseText);
+            document.getElementById("carousel-picture1").src="./resources/img/"+jsonObject[0];
+            document.getElementById("carousel-picture2").src="./resources/img/"+jsonObject[1];
+            document.getElementById("carousel-picture3").src="./resources/img/"+jsonObject[2];
+        }
+    }
+    xmlhttp.open("GET","./php/home/get_3_most_used.php",true);
+    xmlhttp.send();
+
+</script>
+<script>
+    var xmlhttp;
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange=function()
+    {
+        if (xmlhttp.readyState==4 && xmlhttp.status==200)
+        {
+            var jsonObject=JSON.parse(xmlhttp.responseText);
+            document.getElementById("latest_pic_1").src="./resources/img/"+jsonObject[0][0];
+            document.getElementById("latest_title_1").innerHTML=jsonObject[0][1];
+            document.getElementById("latest_description_1").innerHTML="./resources/img/"+jsonObject[0][2];
+            document.getElementById("latest_a_1").href="./php/home/go_detail.php?file_id="+jsonObject[0][0];
+
+            document.getElementById("latest_pic_2").src="./resources/img/"+jsonObject[1][0];
+            document.getElementById("latest_title_2").innerHTML=jsonObject[1][1];
+            document.getElementById("latest_description_2").innerHTML="./resources/img/"+jsonObject[1][2];
+            document.getElementById("latest_a_2").href="./php/home/go_detail.php?file_id="+jsonObject[1][0];
+
+            document.getElementById("latest_pic_3").src="./resources/img/"+jsonObject[2][0];
+            document.getElementById("latest_title_3").innerHTML=jsonObject[2][1];
+            document.getElementById("latest_description_3").innerHTML="./resources/img/"+jsonObject[2][2];
+            document.getElementById("latest_a_3").href="./php/home/go_detail.php?file_id="+jsonObject[2][0];
+
+            document.getElementById("latest_pic_4").src="./resources/img/"+jsonObject[3][0];
+            document.getElementById("latest_title_4").innerHTML=jsonObject[3][1];
+            document.getElementById("latest_description_4").innerHTML="./resources/img/"+jsonObject[3][2];
+            document.getElementById("latest_a_4").href="./php/home/go_detail.php?file_id="+jsonObject[3][0];
+
+
+            document.getElementById("latest_pic_5").src="./resources/img/"+jsonObject[4][0];
+            document.getElementById("latest_title_5").innerHTML=jsonObject[4][1];
+            document.getElementById("latest_description_5").innerHTML="./resources/img/"+jsonObject[4][2];
+            document.getElementById("latest_a_5").href="./php/home/go_detail.php?file_id="+jsonObject[4][0];
+
+            document.getElementById("latest_pic_6").src="./resources/img/"+jsonObject[5][0];
+            document.getElementById("latest_title_6").innerHTML=jsonObject[5][1];
+            document.getElementById("latest_description_6").innerHTML="./resources/img/"+jsonObject[5][2];
+            document.getElementById("latest_a_6").href="./php/home/go_detail.php?file_id="+jsonObject[5][0];
+        }
+    }
+    xmlhttp.open("GET","./php/home/get_latest.php",true);
+    xmlhttp.send();
+
+</script>
 
 
 </body>
+<!-- MDB -->
+
 
 </html>
