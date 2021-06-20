@@ -7,8 +7,6 @@
     <link rel="stylesheet" type="text/css" href="resources/css/button.css">
 
 
-
-
     <!-- Font Awesome -->
     <link
             href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
@@ -53,7 +51,7 @@
             <!-- Left links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active"  href="homepage.html">Home</a>
+                    <a class="nav-link active" href="homepage.html">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="login.html">login</a>
@@ -88,17 +86,36 @@
                     Search
                 </button>
             </form>
+            <span class="fas fa-user-circle"><span id="user" class="badge bg-primary"></span></span>
         </div>
         <!-- Collapsible wrapper -->
     </div>
     <!-- Container wrapper -->
 </nav>
+<script>
+    let user = localStorage.getItem('user');
+
+    if (user === null) {
+        document.getElementById('user').innerText = '';
+    } else {
+        document.getElementById('user').innerText = user;
+    }
+
+
+</script>
 <!-- Navbar -->
 <div class="card text-center">
-    <div class="card-header" id="name">ADMIN</div>
+    <h5 class="card-title"><span id="userName"></span></h5>
+    <div class="card-header"><span id="userID"></span></div>
     <div class="card-body">
-        <h5 class="card-title" id="email">1217456181@qq.com</h5>
+        <p class="card-text" id="email">1217456181@qq.com</p>
         <p class="card-text" id="address">
+            Shang Hai , FuDan University
+        </p>
+        <p class="card-text" id="tel">
+            Shang Hai , FuDan University
+        </p>
+        <p class="card-text" id="balance">
             Shang Hai , FuDan University
         </p>
 
@@ -113,97 +130,107 @@
         <section class="text-center text-md-start">
             <h4 class="mb-5"><strong>Latest posts</strong></h4>
 
-            <!-- Post -->
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="bg-image hover-overlay shadow-1-strong rounded ripple" data-mdb-ripple-color="light">
-                        <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid" />
-                        <a href="#!">
-                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                        </a>
+            <div id="posts">
+
+                <!-- Post -->
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="bg-image hover-overlay shadow-1-strong rounded ripple"
+                             data-mdb-ripple-color="light">
+                            <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"/>
+                            <a href="#!">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8 mb-4">
+                        <h5>Very long post title</h5>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ratione
+                            necessitatibus itaque error alias repellendus nemo reiciendis aperiam quisquam minus
+                            ipsam reprehenderit commodi ducimus, in dicta aliquam eveniet dignissimos magni.
+                        </p>
+
+                        <button type="button" class="btn btn-primary">Read</button>
                     </div>
                 </div>
 
-                <div class="col-md-8 mb-4">
-                    <h5>Very long post title</h5>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ratione
-                        necessitatibus itaque error alias repellendus nemo reiciendis aperiam quisquam minus
-                        ipsam reprehenderit commodi ducimus, in dicta aliquam eveniet dignissimos magni.
-                    </p>
+                <!-- Post -->
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="bg-image hover-overlay shadow-1-strong rounded ripple"
+                             data-mdb-ripple-color="light">
+                            <img src="https://mdbootstrap.com/img/new/standard/nature/002.jpg" class="img-fluid"/>
+                            <a href="#!">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </a>
+                        </div>
+                    </div>
 
-                    <button type="button" class="btn btn-primary">Read</button>
-                </div>
-            </div>
+                    <div class="col-md-8 mb-4">
+                        <h5>Very long post title</h5>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ratione
+                            necessitatibus itaque error alias repellendus nemo reiciendis aperiam quisquam minus
+                            ipsam reprehenderit commodi ducimus, in dicta aliquam eveniet dignissimos magni.
+                        </p>
 
-            <!-- Post -->
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="bg-image hover-overlay shadow-1-strong rounded ripple" data-mdb-ripple-color="light">
-                        <img src="https://mdbootstrap.com/img/new/standard/nature/002.jpg" class="img-fluid" />
-                        <a href="#!">
-                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                        </a>
+                        <button type="button" class="btn btn-primary">Read</button>
                     </div>
                 </div>
 
-                <div class="col-md-8 mb-4">
-                    <h5>Very long post title</h5>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ratione
-                        necessitatibus itaque error alias repellendus nemo reiciendis aperiam quisquam minus
-                        ipsam reprehenderit commodi ducimus, in dicta aliquam eveniet dignissimos magni.
-                    </p>
+                <!-- Post -->
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="bg-image hover-overlay shadow-1-strong rounded ripple"
+                             data-mdb-ripple-color="light">
+                            <img src="https://mdbootstrap.com/img/new/standard/nature/023.jpg" class="img-fluid"/>
+                            <a href="#!">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </a>
+                        </div>
+                    </div>
 
-                    <button type="button" class="btn btn-primary">Read</button>
-                </div>
-            </div>
+                    <div class="col-md-8 mb-4">
+                        <h5>Very long post title</h5>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ratione
+                            necessitatibus itaque error alias repellendus nemo reiciendis aperiam quisquam minus
+                            ipsam reprehenderit commodi ducimus, in dicta aliquam eveniet dignissimos magni.
+                        </p>
 
-            <!-- Post -->
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="bg-image hover-overlay shadow-1-strong rounded ripple" data-mdb-ripple-color="light">
-                        <img src="https://mdbootstrap.com/img/new/standard/nature/023.jpg" class="img-fluid" />
-                        <a href="#!">
-                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                        </a>
+                        <button type="button" class="btn btn-primary">Read</button>
                     </div>
                 </div>
 
-                <div class="col-md-8 mb-4">
-                    <h5>Very long post title</h5>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ratione
-                        necessitatibus itaque error alias repellendus nemo reiciendis aperiam quisquam minus
-                        ipsam reprehenderit commodi ducimus, in dicta aliquam eveniet dignissimos magni.
-                    </p>
+                <!-- Post -->
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="bg-image hover-overlay shadow-1-strong rounded ripple"
+                             data-mdb-ripple-color="light">
+                            <img src="https://mdbootstrap.com/img/new/standard/nature/111.jpg" class="img-fluid"/>
+                            <a href="#!">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </a>
+                        </div>
+                    </div>
 
-                    <button type="button" class="btn btn-primary">Read</button>
-                </div>
-            </div>
+                    <div class="col-md-8 mb-4">
+                        <h5>Very long post title</h5>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ratione
+                            necessitatibus itaque error alias repellendus nemo reiciendis aperiam quisquam minus
+                            ipsam reprehenderit commodi ducimus, in dicta aliquam eveniet dignissimos magni.
+                        </p>
 
-            <!-- Post -->
-            <div class="row">
-                <div class="col-md-4 mb-4">
-                    <div class="bg-image hover-overlay shadow-1-strong rounded ripple" data-mdb-ripple-color="light">
-                        <img src="https://mdbootstrap.com/img/new/standard/nature/111.jpg" class="img-fluid" />
-                        <a href="#!">
-                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                        </a>
+                        <button type="button" class="btn btn-primary">Read</button>
                     </div>
                 </div>
 
-                <div class="col-md-8 mb-4">
-                    <h5>Very long post title</h5>
-                    <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ratione
-                        necessitatibus itaque error alias repellendus nemo reiciendis aperiam quisquam minus
-                        ipsam reprehenderit commodi ducimus, in dicta aliquam eveniet dignissimos magni.
-                    </p>
-
-                    <button type="button" class="btn btn-primary">Read</button>
-                </div>
             </div>
+
+
         </section>
         <!--Section: Content-->
 
@@ -211,7 +238,6 @@
     </div>
 </main>
 <!--Main layout-->
-
 
 
 <footer class="bg-primary text-white text-center text-lg-start">
@@ -286,12 +312,10 @@
 </footer>
 
 <script>
-    function delete_dox(element)
-    {
-        var x=element.parentElement.parentElement.parentElement;
+    function delete_dox(element) {
+        var x = element.parentElement.parentElement.parentElement;
 
-        x.innerHTML="";
-
+        x.innerHTML = "";
 
 
         alert("success !")
@@ -301,6 +325,172 @@
         type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"
 ></script>
+
+<script>
+    user = localStorage.getItem("user");
+
+    var xmlhttp;
+    xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            var results = JSON.parse(xmlhttp.responseText);
+
+
+            var userID = results['userId'];
+            console.log(userID);
+
+            let email = results['email'];
+            let tel = results['tel'];
+            let address = results['address'];
+            let balance = results['balance'];
+            let items = results['items'];
+
+            document.getElementById("userName").innerHTML = user;
+            document.getElementById("userID").innerHTML = "userID: " + userID;
+            document.getElementById("email").innerText = email;
+            document.getElementById("tel").innerText = tel;
+            document.getElementById("address").innerText = address;
+            document.getElementById("balance").innerText = balance + " $";
+            document.getElementById("number_of_carts").innerText = items + " items";
+
+
+        }
+    }
+
+    xmlhttp.open("GET", "./php/get_user_information.php?name=" + user, false);
+    xmlhttp.send();
+
+</script>
+
+
+<script>
+
+        user = localStorage.getItem("user");
+
+
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var results = JSON.parse(xmlhttp.responseText);
+
+                let str = '';
+
+                for (let i = 0; i < results.length; i++) {
+                    let artwork = results[i];
+
+                    let title = artwork[0];
+                    let time = artwork[1];
+                    let location = "./resources/img/" + artwork[2];
+
+                    str += ' <div class="row align-items-center">\n' +
+                        '                    <div class="col-md-4 mb-4">\n' +
+                        '                        <div class="bg-image hover-overlay shadow-1-strong rounded ripple" data-mdb-ripple-color="light">\n' +
+                        '                            <img src=' + location + ' class="img-fluid" />\n' +
+                        '                            <a href="#!">\n' +
+                        '                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>\n' +
+                        '                            </a>\n' +
+                        '                        </div>\n' +
+                        '                    </div>\n' +
+                        '\n' +
+                        '                    <div class="col-md-8 mb-4">\n' +
+                        '                        <h5><a href="./php/home/go_detail.php?file_id='+artwork[2]+'">'+title+'</a></h5>\n' +
+                        '                        <p>\n' + time +
+                        '                        </p>\n' +
+                        '\n' +
+                        '                        <button type="button" class="btn btn-primary" onclick="del(this)" id="'+artwork[2]+'">Delete</button>\n' +
+                        '                    </div>\n' +
+                        '                </div>'
+
+
+                }
+
+                document.getElementById('posts').innerHTML=str;
+
+
+            }
+        }
+
+        xmlhttp.open("GET", "./php/get_all_collections.php?name=" + user, false);
+        xmlhttp.send();
+
+
+
+</script>
+<script>
+
+    function del(object) {
+        let artworkId=object.id;
+
+
+        let xmlhttp;
+        xmlhttp=new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+
+
+                alert("success delete");
+
+
+            }
+        }
+        xmlhttp.open("GET","./php/delete_artwork.php?name="+user+"&artworkID="+artworkId,false);
+        xmlhttp.send();
+
+
+        user = localStorage.getItem("user");
+
+
+        xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                var results = JSON.parse(xmlhttp.responseText);
+
+                let str = '';
+
+                for (let i = 0; i < results.length; i++) {
+                    let artwork = results[i];
+
+                    let title = artwork[0];
+                    let time = artwork[1];
+                    let location = "./resources/img/" + artwork[2];
+
+                    str += ' <div class="row align-items-center">\n' +
+                        '                    <div class="col-md-4 mb-4">\n' +
+                        '                        <div class="bg-image hover-overlay shadow-1-strong rounded ripple" data-mdb-ripple-color="light">\n' +
+                        '                            <img src=' + location + ' class="img-fluid" />\n' +
+                        '                            <a href="#!">\n' +
+                        '                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>\n' +
+                        '                            </a>\n' +
+                        '                        </div>\n' +
+                        '                    </div>\n' +
+                        '\n' +
+                        '                    <div class="col-md-8 mb-4">\n' +
+                        '                        <h5><a href="./php/home/go_detail.php?file_id='+artwork[2]+'">'+title+'</a></h5>\n' +
+                        '                        <p>\n' + time +
+                        '                        </p>\n' +
+                        '\n' +
+                        '                        <button type="button" class="btn btn-primary" onclick="del('+artwork[2]+')" >Delete</button>\n' +
+                        '                    </div>\n' +
+                        '                </div>'
+
+
+                }
+
+                document.getElementById('posts').innerHTML=str;
+
+
+            }
+        }
+
+        xmlhttp.open("GET", "./php/get_all_collections.php?name=" + user, false);
+        xmlhttp.send();
+
+
+
+    }
+</script>
 
 </body>
 </html>

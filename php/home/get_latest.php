@@ -17,17 +17,41 @@ function get_artworks()
         die($conn->error);
     }
     $results->data_seek(0);
-    $id[0]=array($results->fetch_assoc()['imageFileName'],$results->fetch_assoc()['title'],$results->fetch_assoc()['description']);
+    $tem=$results->fetch_assoc();
+    $id[0]=array($tem['imageFileName'],$tem['title'],$tem['description']);
     $results->data_seek(1);
-    $id[1]=array($results->fetch_assoc()['imageFileName'],$results->fetch_assoc()['title'],$results->fetch_assoc()['description']);
+    $tem=$results->fetch_assoc();
+    $id[1]=array($tem['imageFileName'],$tem['title'],$tem['description']);
     $results->data_seek(2);
-    $id[2]=array($results->fetch_assoc()['imageFileName'],$results->fetch_assoc()['title'],$results->fetch_assoc()['description']);
+    $tem=$results->fetch_assoc();
+    $id[2]=array($tem['imageFileName'],$tem['title'],$tem['description']);
     $results->data_seek(3);
-    $id[3]=array($results->fetch_assoc()['imageFileName'],$results->fetch_assoc()['title'],$results->fetch_assoc()['description']);
+    $tem=$results->fetch_assoc();
+    $id[3]=array($tem['imageFileName'],$tem['title'],$tem['description']);
     $results->data_seek(4);
-    $id[4]=array($results->fetch_assoc()['imageFileName'],$results->fetch_assoc()['title'],$results->fetch_assoc()['description']);
+    $tem=$results->fetch_assoc();
+    $id[4]=array($tem['imageFileName'],$tem['title'],$tem['description']);
     $results->data_seek(5);
-    $id[5]=array($results->fetch_assoc()['imageFileName'],$results->fetch_assoc()['title'],$results->fetch_assoc()['description']);
+    $tem=$results->fetch_assoc();
+    $id[5]=array($tem['imageFileName'],$tem['title'],$tem['description']);
+
+    $query = "SELECT * FROM artworks ORDER BY view DESC";
+    $results = $conn->query($query);
+    if (!$results) {
+        die($conn->error);
+    }
+    $results->data_seek(0);
+    $tem=$results->fetch_assoc();
+    $id[6]=array($tem['imageFileName'],$tem['title'],$tem['description']);
+    $results->data_seek(1);
+    $tem=$results->fetch_assoc();
+    $id[7]=array($tem['imageFileName'],$tem['title'],$tem['description']);
+    $results->data_seek(2);
+    $tem=$results->fetch_assoc();
+    $id[8]=array($tem['imageFileName'],$tem['title'],$tem['description']);
+
+
+
 
     echo json_encode($id);
 

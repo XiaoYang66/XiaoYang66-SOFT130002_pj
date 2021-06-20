@@ -50,7 +50,7 @@
             <!-- Left links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active"  href="homepage.html">Home</a>
+                    <a class="nav-link active" href="homepage.html">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="login.html">login</a>
@@ -59,7 +59,7 @@
                     <a class="nav-link" aria-current="page" href="register.html">register</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"  href="collections.html">collections</a>
+                    <a class="nav-link" href="collections.html">collections</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="search.html">search</a>
@@ -85,21 +85,49 @@
                     Search
                 </button>
             </form>
+            <span class="fas fa-user-circle"><span id="user" class="badge bg-primary"></span></span>
         </div>
         <!-- Collapsible wrapper -->
     </div>
     <!-- Container wrapper -->
 </nav>
+<script>
+    let user=localStorage.getItem('user');
+
+    if (user===null){
+        document.getElementById('user').innerText='';
+    }
+    else {
+        document.getElementById('user').innerText=user;
+    }
+
+
+
+</script>
 <main>
-    <p style="text-align: center">REGISTER</p>
-    <div>
-        <form method="post" id="submit_register">
-            <span style=" width: 200px">name：</span><input type="text" name="name"><br><br>
-            password：<input type="password" name="password"><br><br>
-            confirm password: <input type="password" name="password"><br><br>
-            <button type="submit" class="unify_button" onclick="submit_register()">register</button>
-        </form>
+
+    <div class="container">
+        <div class="row">
+            <p style="text-align: center">REGISTER</p>
+
+        </div>
+
+        <div class="row">
+            <div>
+                <form method="post" id="submit_register" style="width:200px;margin: auto">
+                    <span style=" width: 200px">name：</span><br><input type="text" name="name"><br>
+                    password：<br><input type="password" name="password"><br>
+                    confirm password: <br><input type="password" name="password"><br><br>
+                    <a type="submit" class="unify_button" href="#" onclick="submit_register()">register</a>
+                </form>
+            </div>
+
+
+        </div>
+
     </div>
+
+
 </main>
 <footer class="bg-primary text-white text-center text-lg-start">
     <!-- Grid container -->
@@ -171,6 +199,7 @@
     </div>
     <!-- Copyright -->
 </footer>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
 <script>
     function submit_register() {
         const form = document.getElementById("submit_register");
@@ -181,7 +210,7 @@
 
         }
 
-        var number=/\d/;
+        var number = /\d/;
 
 
         var txt;
@@ -189,18 +218,54 @@
         const password = elements[1].value;
         const confir_password = elements[2].value;
 
-        if (name == null || password == null || name === "" || password === "" || confir_password === "" || confir_password==null) {
+        if (name == null || password == null || name === "" || password === "" || confir_password === "" || confir_password == null) {
             txt = "empty input";
+            alert(txt)
         } else if (password !== confir_password) {
             txt = " password not consistent";
-        } else if (!(number.test(password) && hasLetter(password))){
+            alert(txt)
+        } else if (!(number.test(password) && hasLetter(password))) {
             txt = " password not contain both letter and number";
+            alert(txt)
+        } else {
+            console.log("./php/register.php?name=" + name + "&password=" + password);
+
+            var xmlhttp;
+            xmlhttp=new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    let tem_text=xmlhttp.responseText;
+                    console.log(tem_text);
+                    if (tem_text==="true"){
+                        txt = " register success";
+
+
+                        alert(txt);
+                        localStorage.setItem("user",name);
+                        localStorage.setItem("password", password);
+                        window.history.go(-1);
+
+
+                    }
+                    else {
+                        txt = " the name is been used, please choose another name";
+                        alert(txt);
+
+                    }
+
+
+                }
+            }
+
+            xmlhttp.open("GET", "./php/register.php?name=" + name + "&password=" + password, false);
+            xmlhttp.send();
+
+
+
         }
-        else {
-            txt = " register success";
-        }
-        alert(txt)
+
     }
+
     function hasLetter(str) {
         for (var i in str) {
             var asc = str.charCodeAt(i);
@@ -210,6 +275,8 @@
         }
         return false;
     }
+
+
 </script>
 <script
         type="text/javascript"

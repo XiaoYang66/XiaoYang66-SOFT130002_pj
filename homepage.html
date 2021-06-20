@@ -23,6 +23,7 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0/mdb.min.css"
             rel="stylesheet"
     />
+    <script src="js/get_user.js"></script>
 
 
 
@@ -88,11 +89,25 @@
                     Search
                 </button>
             </form>
+            <span class="fas fa-user-circle"><span id="user" class="badge bg-primary"></span></span>
         </div>
         <!-- Collapsible wrapper -->
     </div>
     <!-- Container wrapper -->
 </nav>
+<script>
+    let user=localStorage.getItem('user');
+
+    if (user===null){
+        document.getElementById('user').innerText='';
+    }
+    else {
+        document.getElementById('user').innerText=user;
+    }
+
+
+
+</script>
 
 
 <div>
@@ -116,7 +131,7 @@
             <!-- Single item -->
             <div class="carousel-item active">
                 <img
-                        src="./resources/img/14.jpg"
+                        src="#"
                         class="d-block w-100 .img-fluid"
                         alt="..."
                         style="max-height: 400px"
@@ -124,7 +139,8 @@
 
                 />
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>First slide label</h5>
+                    <a href=""><h5 id="carousel-title1" class="text-white">First slide label</h5> </a>
+
                     <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
                 </div>
             </div>
@@ -132,7 +148,7 @@
             <!-- Single item -->
             <div class="carousel-item">
                 <img
-                        src="./resources/img/12.jpg"
+                        src="#"
                         class="d-block w-100 .img-fluid"
                         alt="..."
                         style="max-height: 400px"
@@ -141,7 +157,7 @@
 
                 />
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Second slide label</h5>
+                    <a href="" ><h5 id="carousel-title2" class="text-white">First slide label</h5> </a>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
             </div>
@@ -149,7 +165,7 @@
             <!-- Single item -->
             <div class="carousel-item">
                 <img
-                        src="./resources/img/15.jpg"
+                        src="#"
                         class="d-block w-100 .img-fluid"
                         alt="..."
                         style="max-height: 400px"
@@ -157,7 +173,7 @@
 
                 />
                 <div class="carousel-caption d-none d-md-block">
-                    <h5>Third slide label</h5>
+                    <a href=""><h5 id="carousel-title3" class="text-white">First slide label</h5> </a>
                     <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                 </div>
             </div>
@@ -392,31 +408,16 @@
     <!-- Copyright -->
 </footer>
 <!-- MDB -->
-
-
-<!-- MDB -->
-<!-- MDB -->
 <script
         type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"
 ></script>
-<script>
-    var xmlhttp;
-    xmlhttp=new XMLHttpRequest();
-    xmlhttp.onreadystatechange=function()
-    {
-        if (xmlhttp.readyState==4 && xmlhttp.status==200)
-        {
-            var jsonObject=JSON.parse(xmlhttp.responseText);
-            document.getElementById("carousel-picture1").src="./resources/img/"+jsonObject[0];
-            document.getElementById("carousel-picture2").src="./resources/img/"+jsonObject[1];
-            document.getElementById("carousel-picture3").src="./resources/img/"+jsonObject[2];
-        }
-    }
-    xmlhttp.open("GET","./php/home/get_3_most_used.php",true);
-    xmlhttp.send();
 
-</script>
+<!-- MDB -->
+<!-- MDB -->
+
+
+
 <script>
     var xmlhttp;
     xmlhttp=new XMLHttpRequest();
@@ -425,6 +426,8 @@
         if (xmlhttp.readyState==4 && xmlhttp.status==200)
         {
             var jsonObject=JSON.parse(xmlhttp.responseText);
+            console.log(2);
+
             document.getElementById("latest_pic_1").src="./resources/img/"+jsonObject[0][0];
             document.getElementById("latest_title_1").innerHTML=jsonObject[0][1];
             document.getElementById("latest_description_1").innerHTML="./resources/img/"+jsonObject[0][2];
@@ -455,12 +458,41 @@
             document.getElementById("latest_title_6").innerHTML=jsonObject[5][1];
             document.getElementById("latest_description_6").innerHTML="./resources/img/"+jsonObject[5][2];
             document.getElementById("latest_a_6").href="./php/home/go_detail.php?file_id="+jsonObject[5][0];
+
+            console.log(jsonObject[6][0])
+            console.log(jsonObject[6][1])
+
+            console.log(jsonObject[7][0])
+            console.log(jsonObject[7][1])
+
+            console.log(jsonObject[8][0])
+            console.log(jsonObject[8][1])
+
+            document.getElementById("carousel-picture1").src="./resources/img/"+jsonObject[6][0];
+            document.getElementById("carousel-title1").innerHTML=jsonObject[6][1]
+            document.getElementById("carousel-title1").parentElement.href="./php/home/go_detail.php?file_id="+jsonObject[6][0];
+
+
+            document.getElementById("carousel-picture2").src="./resources/img/"+jsonObject[7][0];
+            document.getElementById("carousel-title2").innerHTML=jsonObject[7][1];
+            document.getElementById("carousel-title2").parentElement.href="./php/home/go_detail.php?file_id="+jsonObject[7][0];
+
+            document.getElementById("carousel-picture3").src="./resources/img/"+jsonObject[8][0];
+            document.getElementById("carousel-title3").innerHTML=jsonObject[8][1];
+            document.getElementById("carousel-title3").parentElement.href="./php/home/go_detail.php?file_id="+jsonObject[8][0];
+
+
         }
     }
     xmlhttp.open("GET","./php/home/get_latest.php",true);
     xmlhttp.send();
 
+
+
+
 </script>
+
+
 
 
 </body>

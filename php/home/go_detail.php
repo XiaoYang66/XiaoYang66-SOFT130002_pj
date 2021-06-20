@@ -28,6 +28,15 @@ $view=$results->fetch_assoc()['view']+1;
 $results->data_seek(0);
 $artworkId=$results->fetch_assoc()['imageFileName'];
 
+$query = "UPDATE artworks SET view=$view WHERE imageFileName="."'".$p."'";
+$retval = mysqli_query( $conn, $query );
+if(! $retval )
+{
+    die('无法更新数据: ' . mysqli_error($conn));
+}
+
+mysqli_close($conn);
+
 echo '<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -118,11 +127,25 @@ echo '<!DOCTYPE html>
                     Search
                 </button>
             </form>
+            <span class="fas fa-user-circle"><span id="user" class="badge bg-primary"></span></span>
         </div>
         <!-- Collapsible wrapper -->
     </div>
     <!-- Container wrapper -->
 </nav>
+<script>
+    let user=localStorage.getItem("user");
+
+    if (user===null){
+        document.getElementById("user").innerText="";
+    }
+    else {
+        document.getElementById("user").innerText=user;
+    }
+
+
+
+</script>
 <div class="card mb-3" style="max-width: 540px; margin: auto">
     <div class="row g-0 align-items-center">
         <div class="col-md-4 " >
@@ -145,6 +168,9 @@ echo '<!DOCTYPE html>
                     <small class="text-muted">viewed: '.$view.' times </small>
                     <small class="text-muted">$'.$price.'</small>
                 </p>
+                
+                <button type="button" class="btn btn-primary" onclick="collect()" style="visibility: hidden" id="collect"> collect</button>
+                
             </div>
         </div>
     </div>
@@ -223,6 +249,61 @@ echo '<!DOCTYPE html>
         type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"
 ></script>
+<script>
+    localStorage.setItem("artwork",'.'"'.$p.'"'.');
+    let artwork='.'"'.$p.'"'.';
+    
+    if (user===null){
+        
+    }
+    else {
+        var xmlhttp;
+        xmlhttp=new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                
+                
+                document.getElementById("collect").style.visibility="visible";
+                let te=xmlhttp.responseText;
+                console.log(te);
+                if (te==="true"){
+                    
+                }
+                else {
+                    document.getElementById("collect").innerText="collected";
+                    document.getElementById("collect").onclick="";
+                    
+                }
+            }
+        }
+        xmlhttp.open("GET", "./chect_art_work.php?name=" + user + "&artwork=" + artwork, false);
+        console.log("./chect_art_work.php?name=" + user + "&artwork=" + artwork);
+        xmlhttp.send();
+            
+    }
+</script>
+<script>
+function collect(){
+    user=localStorage.getItem("user");
+    let artwork=localStorage.getItem("artwork");
+    var xmlhttp;
+    xmlhttp=new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+            let te=xmlhttp.responseText;
+            if(te==="true"){
+                document.getElementById("collect").innerText="collected";
+                document.getElementById("collect").onclick="";
+            }
+            
+        }
+    }
+    xmlhttp.open("GET", "./collect.php?name=" + user + "&artwork=" + artwork, true);
+    xmlhttp.send();
+}
+
+
+</script>
 
 </body>
 </html>';

@@ -84,21 +84,56 @@
                     Search
                 </button>
             </form>
+            <span class="fas fa-user-circle"><span id="user" class="badge bg-primary"></span></span>
         </div>
         <!-- Collapsible wrapper -->
     </div>
     <!-- Container wrapper -->
 </nav>
-<main>
-    <p style="text-align: center">LOGIN IN</p>
-    <div >
-        <form  method="post" id="submit_login">
-            name：<input type="text" name="name" id="name"><br><br>
-            password：<input type="password" name="password" id="password"><br><br>
+<script>
+    let user=localStorage.getItem('user');
 
-            <button onclick="submit_login()" type="submit" class="unify_button" style="text-align: center">log in</button>
-        </form>
+    if (user===null){
+        document.getElementById('user').innerText='';
+    }
+    else {
+        document.getElementById('user').innerText=user;
+    }
+
+
+
+</script>
+<main>
+
+    <div class="container">
+        <div class="row">
+            <p style="text-align: center">LOGIN IN</p>
+
+        </div>
+
+        <div class="row" >
+            <div >
+                <form  method="post" id="submit_login" style="width:300px;margin: auto">
+                    name：<input type="text" name="name" id="name"><br><br>
+                    password：<input type="password" name="password" id="password"><br><br>
+
+                    <a onclick="submit_login()" type="submit" href="#" class="unify_button" style="text-align: center;">log in</a>
+                </form>
+            </div>
+
+
+
+
+
+
+
+
+        </div>
+
     </div>
+
+
+
 
 
 
@@ -176,6 +211,7 @@
 </footer>
 <script>
     function submit_login() {
+        window.history.go(-1);
         const form = document.getElementById("submit_login");
         var elements = [];
         var tagElements = form.getElementsByTagName('input');
@@ -189,10 +225,58 @@
         var password=elements[1].value;
         if (name == null || password == null || name === "" || password === "") {
             txt = "empty input";
+            alert(txt)
         } else {
-            txt = "hello! "+name+"!";
+            var xmlhttp;
+            xmlhttp=new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                    let tem_text=xmlhttp.responseText;
+                    console.log(tem_text);
+                    if (tem_text==="true"){
+                        txt = " login success";
+                        localStorage.setItem("user",name);
+                        localStorage.setItem("password", password);
+
+                        window.history.go(-1);
+
+                        alert(txt);
+
+                    }
+                    else {
+                        txt = xmlhttp.responseText;
+                        alert(txt);
+
+                    }
+
+
+
+
+
+                }
+            }
+
+            xmlhttp.open("GET", "./php/login.php?name=" + name + "&password=" + password, false);
+            xmlhttp.send();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         }
-        alert(txt)
+
     }
 </script>
 <script

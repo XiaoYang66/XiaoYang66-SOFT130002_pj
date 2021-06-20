@@ -88,11 +88,25 @@
                     Search
                 </button>
             </form>
+            <span class="fas fa-user-circle"><span id="user" class="badge bg-primary"></span></span>
         </div>
         <!-- Collapsible wrapper -->
     </div>
     <!-- Container wrapper -->
 </nav>
+<script>
+    let user=localStorage.getItem('user');
+
+    if (user===null){
+        document.getElementById('user').innerText='';
+    }
+    else {
+        document.getElementById('user').innerText=user;
+    }
+
+
+
+</script>
 <div class="card mb-3" style="max-width: 540px; margin: auto">
     <div class="row g-0">
         <div class="col-md-4">

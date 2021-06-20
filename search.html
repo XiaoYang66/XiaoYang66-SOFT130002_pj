@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>search</title>
-    <link rel="stylesheet" type="text/css" href="resources/css/header&nav.css">
-    <link rel="stylesheet" type="text/css" href="resources/css/button.css">
+
 
     <!-- Font Awesome -->
     <link
@@ -21,170 +20,8 @@
             href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0/mdb.min.css"
             rel="stylesheet"
     />
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        .dropbtn {
-            float: left;
-
-            margin-top: 20px;
 
 
-            color: cornflowerblue;
-
-            font-size: 22px;
-            border: none;
-            cursor: pointer;
-        }
-
-        .dropdown {
-
-            width: 100%;
-            position: relative;
-            display: inline-block;
-        }
-
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 160px;
-            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-            z-index: 1;
-        }
-
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
-        }
-
-        .dropdown-content a:hover {background-color: #f1f1f1}
-
-        .dropdown:hover .dropdown-content {
-            display: block;
-        }
-
-        .dropdown:hover .dropbtn {
-            background-color: #3e8e41;
-        }
-
-        .box {
-
-            float: left;
-            width: 70%;
-            padding: 20px;
-            background-color: white;
-
-
-        }
-
-
-        .box_box{
-            margin-top: 20px;
-            width: 100%;
-            float: left;
-            background-color:#f1f1f1;
-            padding: 20px;
-        }
-
-
-        .clearfix::after {
-            content: "";
-            clear: both;
-            display: table;
-        }
-
-        .picture{
-            float: left;
-            width: 30%;
-            /*text-align: center;*/
-        }
-        .content{
-            float: left;
-            width: 70%;
-        }
-
-
-        div>img{
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .search{
-            width: 30%;
-            float: left;
-            margin: 40px auto;
-            display: inline;
-            padding-left: 8%;
-            background-color: #f1f1f1;
-
-
-            /*border: 1px solid red;*/
-        }
-        .search input{
-            border-top-left-radius: 5px;
-            border-bottom-left-radius: 5px;
-            float: left;
-
-            height: 30px;
-            outline: none;
-            border: 1px solid black;
-            box-sizing: border-box;
-            background-color: white;
-        }
-        .search button{
-            float: left;
-            border-bottom-right-radius: 5px;
-            border-top-right-radius: 5px;
-            height: 30px;
-            background-color: black;
-            color: white;
-            border-style: none;
-            outline: none;
-        }
-        .search button i{
-            font-style: normal;
-        }
-        .search button:hover{
-            font-size: 16px;
-        }
-
-        .pagination {
-            margin-top: 10px;
-            width: 100%;
-            float: left;
-            background-color:white;
-            padding: 20px;
-            display: inline-block;
-        }
-
-        .pagination a {
-            color: black;
-            float: left;
-            padding: 8px 16px;
-            text-decoration: none;
-            transition: background-color .3s;
-            border: 1px solid #ddd;
-            margin: 0 4px;
-        }
-
-        .pagination a.active {
-            background-color: #4CAF50;
-            color: white;
-            border: 1px solid #4CAF50;
-        }
-
-        .pagination a:hover:not(.active) {background-color: #ddd;}
-
-
-
-
-    </style>
 </head>
 
 <body>
@@ -248,92 +85,121 @@
                     Search
                 </button>
             </form>
+            <span class="fas fa-user-circle"><span id="user" class="badge bg-primary"></span></span>
         </div>
         <!-- Collapsible wrapper -->
     </div>
     <!-- Container wrapper -->
 </nav>
+<script>
+    let user=localStorage.getItem('user');
+
+    if (user===null){
+        document.getElementById('user').innerText='';
+    }
+    else {
+        document.getElementById('user').innerText=user;
+    }
 
 
-<div class="clearfix" >
-    <div class="search">
-        <input type="text" placeholder="请输入..." name="" id="" value="" />
-        <button><i>搜索</i></button>
-    </div>
-    <div class="box" >
-        <div class="dropdown">
-            <button class="dropbtn">keyword</button>
-            <div class="dropdown-content">
-                <a href="#">keyword 1</a>
-                <a href="#">keyword 2</a>
-                <a href="#">keyword 3</a>
-            </div>
+
+</script>
+
+
+
+<!--Main layout-->
+<main class="my-5">
+    <div class="row" style="margin: auto">
+        <div class="row" style="margin: auto">
+            <select  onchange="change1(this)" id="type" style="width: 200px ;margin: auto">
+                <option value="title" style="width: 200px">title</option>
+                <option value="description" style="width: 200px">description</option>
+                <option value="artist" style="width: 200px">artist</option>
+            </select>
         </div>
-        <div class="box_box">
-            <div class="picture">
-                <img src="resources/img/14.jpg" width="40%" height="40%">
-            </div>
-            <div class="content">
-                <p>
-                    title: a beautiful picture
-                </p>
-                <p>
-                    description: a beautiful picture
-                </p>
-                <p>
-                    <a href="details.html" class="content_a"> details</a>
-                </p>
-
-            </div>
+        <div class="row" style="margin: auto">
+            <input type="tex" id="keyword" style="width: 200px;margin: auto" >
         </div>
-        <div class="box_box">
-            <div class="picture">
-                <img src="resources/img/15.jpg" width="40%" height="40%">
-            </div>
-            <div class="content">
-                <p>
-                    title: a beautiful picture
-                </p>
-                <p>
-                    description: a beautiful picture
-                </p>
-                <p>
-                    <a href="details.html" class="content_a"> details</a>
-                </p>
+        <button onclick="change2(this)" style="width: 100px;margin: auto" >search</button>
+        <div class="row" style="margin: auto">
+            <select  onchange="change3(this)" id="sort" style="width: 200px;margin: auto">
+                <option value="view" style="width: 200px">view</option>
+                <option value="price" style="width: 200px">price</option>
 
-            </div>
+            </select>
         </div>
-        <div class="box_box">
-            <div class="picture">
-                <img src="resources/img/16.jpg" width="40%" height="40%">
-            </div>
-            <div class="content">
-                <p>
-                    title: a beautiful picture
-                </p>
-                <p>
-                    description: a beautiful picture
-                </p>
-                <p>
-                    <a href="details.html" class="content_a"> details</a>
-                </p>
-
-            </div>
-        </div>
-        <div class="pagination">
-            <a href="#">«</a>
-            <a href="#">1</a>
-            <a href="#" class="active">2</a>
-            <a href="#">3</a>
-            <a href="#">4</a>
-            <a href="#">5</a>
-            <a href="#">6</a>
-            <a href="#">»</a>
-        </div>
-
 
     </div>
-</div>
+    <div class="container">
+        <!--Section: Content-->
+        <section class="text-center text-md-start">
+
+
+            <div id="posts">
+
+                <!-- Post -->
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="bg-image hover-overlay shadow-1-strong rounded ripple"
+                             data-mdb-ripple-color="light">
+                            <img src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" class="img-fluid"/>
+                            <a href="#!">
+                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8 mb-4">
+                        <h5>Very long post title</h5>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus ratione
+                            necessitatibus itaque error alias repellendus nemo reiciendis aperiam quisquam minus
+                            ipsam reprehenderit commodi ducimus, in dicta aliquam eveniet dignissimos magni.
+                        </p>
+
+                        <button type="button" class="btn btn-primary">Read</button>
+                    </div>
+                </div>
+
+
+
+            </div>
+
+            <nav aria-label="Page navigation example" >
+                <ul class="pagination" style="margin: auto;width: 200px;">
+                    <li class="page-item">
+                        <button class="page-link"  aria-label="Previous" onclick="pagePre()">
+                            <span aria-hidden="true">&laquo;</span>
+                        </button>
+                    </li>
+                    <li id="page">
+                        <li class="page-item"><a class="page-link" onclick="change(this)" id="1">1</a></li>
+                        <li class="page-item"><a class="page-link" onclick="change(this)" id="2">2</a></li>
+                        <li class="page-item"><a class="page-link" onclick="change(this)" id="3">3</a></li>
+                        <li class="page-item"><a class="page-link" onclick="change(this)" id="4">4</a></li>
+                    </li>
+
+                    <li class="page-item">
+                        <button class="page-link"  aria-label="Next" onclick="pageNext()">
+                            <span aria-hidden="true">&raquo;</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+
+
+        </section>
+        <!--Section: Content-->
+
+
+
+
+    </div>
+</main>
+<!--Main layout-->
+
+
+
 <footer class="bg-primary text-white text-center text-lg-start">
     <!-- Grid container -->
     <div class="container p-4">
@@ -408,6 +274,252 @@
         type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.5.0/mdb.min.js"
 ></script>
+<script>
+    function pagePre(){
+        let first=parseInt(document.getElementById('1').innerText);
+        if(first===1){
+
+        }
+        else {
+            document.getElementById('1').innerText=first-1+"";
+            document.getElementById('2').innerText=first+"";
+            document.getElementById('3').innerText=first+1+"";
+            document.getElementById('4').innerText=first+2+"";
+
+        }
+    }
+    function pageNext(){
+        let last=parseInt(document.getElementById('4').innerText);
+
+        if (last===parseInt(localStorage.getItem('length'))){
+
+        }
+        else {
+            document.getElementById('1').innerText=last-2+"";
+            document.getElementById('2').innerText=last-1+"";
+            document.getElementById('3').innerText=last+"";
+            document.getElementById('4').innerText=last+1+"";
+        }
+
+
+
+
+    }
+
+    function len(type,keyword){
+        var xmlhttp;
+        xmlhttp=new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                let results=xmlhttp.responseText;
+                localStorage.setItem('length',results);
+
+
+
+            }
+        }
+        console.log("./php/search/get_length.php?type="+type+"&keyword="+keyword);
+        xmlhttp.open("GET","./php/search/get_length.php?type="+type+"&keyword="+keyword,false);
+
+        xmlhttp.send();
+
+    }
+
+    function get_artwork(type,keyword,int){
+
+        var xmlhttp;
+        xmlhttp=new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                var results=JSON.parse(xmlhttp.responseText);
+                console.log(results);
+                let str = '';
+
+                for (let i = 0; i < results.length; i++) {
+                    let artwork = results[i];
+
+                    let title = artwork[0];
+                    let description = artwork[1];
+                    description=description.substring(0,100)+"....";
+                    let artist=artwork[2];
+                    let location = "./resources/img/" + artwork[3];
+                    let price=artwork[4];
+                    let view=artwork[5];
+
+
+
+                    str += ' <div class="row align-items-center">\n' +
+                        '                    <div class="col-md-4 mb-4">\n' +
+                        '                        <div class="bg-image hover-overlay shadow-1-strong rounded ripple" data-mdb-ripple-color="light">\n' +
+                        '                            <img src=' + location + ' class="img-fluid" />\n' +
+                        '                            <a href="#!">\n' +
+                        '                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>\n' +
+                        '                            </a>\n' +
+                        '                        </div>\n' +
+                        '                    </div>\n' +
+                        '\n' +
+                        '                    <div class="col-md-8 mb-4">\n' +
+                        '                        <h5><a href="./php/home/go_detail.php?file_id='+artwork[3]+'">'+title+'</a></h5>\n' +
+                        '                        <h2>'+artist+'</h2>' +
+                        '                        \n' +
+                        '\n' +
+                        '                        <p>\n' + description +
+                        '                        </p>\n' +
+                        '                        <div>' +
+                        '                             <span class="badge bg-primary">'+price+'$</span>\n' +
+                        '                             <span class="badge bg-primary">'+view+'times</span>\n' +
+                        '                             ' +
+                        '                        </div>\n' +
+                        '                    </div>\n' +
+                        '                </div>'
+
+
+                }
+
+                document.getElementById('posts').innerHTML=str;
+
+
+            }
+        }
+        xmlhttp.open("GET","./php/search/getArtWork.php?type="+type+"&keyword="+keyword+"&number="+parseInt(int),false);
+        xmlhttp.send();
+
+
+    }
+    function change1(obj){
+        let value=obj.options[obj.selectedIndex].value;
+        localStorage.setItem('type',value);
+        len(localStorage.getItem('type'),localStorage.getItem('keyword'));
+        if (parseInt(localStorage.getItem('length'))===0){
+            document.getElementById('posts').innerHTML='';
+
+            return
+        }
+        get_artwork_sort(localStorage.getItem('type'),localStorage.getItem('keyword'),localStorage.getItem('len'),localStorage.getItem('sort'));
+
+
+    }
+    function change2(){
+        let value=document.getElementById('keyword').value;
+        localStorage.setItem('keyword',value);
+        console.log('wwwwwwwwwwwwwwwww')
+
+        len(localStorage.getItem('type'),localStorage.getItem('keyword'));
+        console.log(localStorage.getItem('length'));
+        console.log(parseInt(localStorage.getItem('length'))===0);
+        if (parseInt(localStorage.getItem('length'))===0){
+            console.log('qqqqqqqqqqqqqq')
+
+            document.getElementById('posts').innerHTML='';
+            return
+        }
+        get_artwork_sort(localStorage.getItem('type'),localStorage.getItem('keyword'),localStorage.getItem('len'),localStorage.getItem('sort'));
+
+
+    }
+    function change3(obj){
+        let value=obj.options[obj.selectedIndex].value;
+        localStorage.setItem('sort',value);
+        console.log(value);
+        len(localStorage.getItem('type'),localStorage.getItem('keyword'));
+
+        get_artwork_sort(localStorage.getItem('type'),localStorage.getItem('keyword'),localStorage.getItem('len'),localStorage.getItem('sort'));
+
+    }
+    function get_artwork_sort(type,keyword,int,sort){
+
+        var xmlhttp;
+        xmlhttp=new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function()
+        {
+            if (xmlhttp.readyState==4 && xmlhttp.status==200)
+            {
+                var results=JSON.parse(xmlhttp.responseText);
+                console.log(results);
+                let str = '';
+
+                for (let i = 0; i < results.length; i++) {
+                    let artwork = results[i];
+
+                    let title = artwork[0];
+                    let description = artwork[1];
+                    description=description.substring(0,100)+"....";
+                    let artist=artwork[2];
+                    let location = "./resources/img/" + artwork[3];
+                    let price=artwork[4];
+                    let view=artwork[5];
+
+
+
+                    str += ' <div class="row align-items-center">\n' +
+                        '                    <div class="col-md-4 mb-4">\n' +
+                        '                        <div class="bg-image hover-overlay shadow-1-strong rounded ripple" data-mdb-ripple-color="light">\n' +
+                        '                            <img src=' + location + ' class="img-fluid" />\n' +
+                        '                            <a href="#!">\n' +
+                        '                                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>\n' +
+                        '                            </a>\n' +
+                        '                        </div>\n' +
+                        '                    </div>\n' +
+                        '\n' +
+                        '                    <div class="col-md-8 mb-4">\n' +
+                        '                        <h5><a href="./php/home/go_detail.php?file_id='+artwork[3]+'">'+title+'</a></h5>\n' +
+                        '                        <h2>'+artist+'</h2>' +
+                        '                        \n' +
+                        '\n' +
+                        '                        <p>\n' + description +
+                        '                        </p>\n' +
+                        '                        <div>' +
+                        '                             <span class="badge bg-primary">'+price+'$</span>\n' +
+                        '                             <span class="badge bg-primary">'+view+'times</span>\n' +
+                        '                             ' +
+                        '                        </div>\n' +
+                        '                    </div>\n' +
+                        '                </div>'
+
+
+                }
+
+                document.getElementById('posts').innerHTML=str;
+
+
+            }
+        }
+        xmlhttp.open("GET","./php/search/getArtWorkSort.php?type="+type+"&keyword="+keyword+"&number="+parseInt(int)+"&sort="+sort,false);
+        xmlhttp.send();
+
+
+    }
+    function change(obj){
+        let value=obj.innerText;
+        console.log(value);
+        localStorage.setItem('len',value);
+        len(localStorage.getItem('type'),localStorage.getItem('keyword'));
+        get_artwork_sort(localStorage.getItem('type'),localStorage.getItem('keyword'),localStorage.getItem('len'),localStorage.getItem('sort'));
+
+
+
+    }
+
+</script>
+<script>
+    localStorage.setItem('type','artist');
+    localStorage.setItem('keyword','');
+    localStorage.setItem('sort','price');
+    localStorage.setItem('len','1');
+
+    len(localStorage.getItem('type'),localStorage.getItem('keyword'));
+    get_artwork(localStorage.getItem('type'),localStorage.getItem('keyword'),localStorage.getItem('len'));
+
+
+
+
+
+
+</script>
 
 
 
